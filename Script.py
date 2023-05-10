@@ -27,6 +27,8 @@ ms.meshing_remove_selected_vertices_and_faces()
 print("generate OBJ file and PNG texture")
 ms.compute_texcoord_by_function_per_vertex()
 ms.compute_texcoord_transfer_vertex_to_wedge()
+# the following line might raise a runtime error with "Inter-Triangle border is too much", 
+# which can solved by setting a larger `DIM`
 ms.compute_texcoord_parametrization_triangle_trivial_per_wedge(textdim=DIM)
 ms.compute_texmap_from_color(textname="mesh.png", textw=DIM, texth=DIM)
 ms.save_current_mesh("mesh.obj")
